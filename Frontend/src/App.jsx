@@ -2,11 +2,13 @@ import React from "react";
 import Home from "./home/Home";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Courses from "./courses/Courses";
+import Contacts from "./contacts/Contacts";
 import Signup from "./components/Signup";
 import { Toaster } from "react-hot-toast";
 import { useAuth } from "./context/AuthProvider";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
+import Abouts from "./abouts/Abouts";
 
 function App() {
   const [authUser, setAuthUser] = useAuth();
@@ -20,6 +22,15 @@ function App() {
           <Route
             path="/course"
             element={authUser ? <Courses /> : <Navigate to="/signup" />}
+          />
+          
+          <Route
+            path="/contact"
+            element={authUser ? <Contacts /> : <Navigate to="/signup" />}
+          />
+           <Route
+            path="/about"
+            element={authUser ? <Abouts /> : <Navigate to="/signup" />}
           />
           <Route path="/signup" element={<Signup />} />
         </Routes>
