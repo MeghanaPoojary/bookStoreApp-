@@ -9,6 +9,8 @@ import { useAuth } from "./context/AuthProvider";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
 import Abouts from "./abouts/Abouts";
+import UserInformation from "./components/UserInformation";
+import PaymentPage from "./components/PaymentPage";
 
 function App() {
   const [authUser, setAuthUser] = useAuth();
@@ -33,6 +35,8 @@ function App() {
             element={authUser ? <Abouts /> : <Navigate to="/signup" />}
           />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/user-info" element={<UserInformation />} />
+          <Route path="/payment" element={<PaymentPage />} />
         </Routes>
         <Toaster />
       </div>
